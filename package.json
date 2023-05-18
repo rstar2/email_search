@@ -9,16 +9,18 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "test": "turbo run test --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "deploy:only": "turbo run deploy",
+    "deploy": "npm run lint && npm run test && npm run build && npm run deploy:only"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "turbo": "latest"
+    "turbo": "^1.9.4"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
   "packageManager": "npm@8.6.0"
 }

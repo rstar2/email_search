@@ -17,9 +17,13 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "paths": {
+        "@/*": ["./src/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", "../../packages/mock", "../backend/src/dev/mock/results.ts"],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
