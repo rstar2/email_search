@@ -5,7 +5,7 @@ import "express-async-errors";
 import cors from "cors";
 import { z } from "zod";
 
-import { User, wait } from "utils";
+import { User, wait, filter } from "utils";
 import mockedData from "./mock/data.json";
 import mockedAuth from "./mock/auth.json";
 import { verifyAuthToken, createAuthToken } from "@libs/jwt";
@@ -54,8 +54,6 @@ const isAuth: RequestHandler = async (req: AuthRequest, res, next) => {
 app.post("/auth/login", async (req, res) => {
     const { name, password } = req.body;
 
-    console.log("???", name, password);
-
     // search in the auth users
     const user = mockedAuth.find(
         ({ name: aName, password: aPassword }) => aName === name && aPassword === password,
@@ -67,9 +65,12 @@ app.post("/auth/login", async (req, res) => {
 });
 
 app.get("/api/search", isAuth, async (req: AuthRequest, res) => {
+    const { query } = req.query;
+
+    const data = query ? filter(mockedData, query as string) : mockedData;
     await wait(1000);
 
-    res.json(mockedData);
+    res.json(data);
 });
 
 // Handle a "global" error

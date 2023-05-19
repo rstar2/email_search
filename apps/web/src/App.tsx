@@ -39,7 +39,7 @@ function App() {
             <Stack h="100%">
                 <Header height="auto">
                     <Flex justify={"space-around"}>
-                        <Title>Searcher</Title>
+                        <Title>Email Searcher</Title>
                         <Flex align="center">
                             <Text>{isAuth ? "Logout" : "Login"}</Text>
                             <ThemeIcon
