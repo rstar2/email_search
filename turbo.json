@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["SCRAPE_EMAIL", "SCRAPE_PASSWORD"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],

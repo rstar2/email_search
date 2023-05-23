@@ -1,8 +1,8 @@
 {
-  "extends": "./tsconfig.paths.json",
+//   "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "rootDir": ".",
-    "lib": ["ESNext"],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "moduleResolution": "node",
     // "noUnusedLocals": true,
     // "noUnusedParameters": true,
@@ -23,7 +23,7 @@
     "_warmup/**/*",
     ".vscode/**/*"
   ],
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  }
+//   "ts-node": {
+//     "require": ["tsconfig-paths/register"]
+//   }
 }
